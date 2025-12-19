@@ -46,27 +46,39 @@ Front-end korzysta z **EJS** i własnego CSS. Projekt zawiera obsługę błędó
 ```bash
 git clone https://github.com/TwojeRepo/temex
 cd temex
-2. Wymagania
+```
+### 2. Wymagania
+```bash
 Node.js (v18+)
 npm
 MongoDB
 Docker (opcjonalnie)
-3. Instalacja zależności
+```
+### 3. Instalacja zależności
+```bash
 npm install
-4. Konfiguracja Docker (MongoDB)
+```
+### 4. Konfiguracja Docker (MongoDB)
+```bash
 docker run -d \
   --name temex-mongo \
   -p 27017:27017 \
   -v temex-mongo-data:/data/db \
   mongo:6.0
-Połączenie w aplikacji w db.js:
+```
+## Połączenie w aplikacji w db.js:
+```bash
 const uri = 'mongodb://localhost:27017';
 const dbName = 'temex-mongo';
-5. Uruchomienie aplikacji
+```
+### 5. Uruchomienie aplikacji
+```bash
 npm start
-Dostęp pod: http://localhost:3000
+```
+## Dostęp pod: http://localhost:3000
 🔗 Endpoints
-Sekcja	Endpoint	Opis
+## Sekcja	Endpoint	Opis
+```bash
 Strona główna	GET /	Homepage
 Logowanie	GET /auth/login	Formularz logowania
 POST /auth/login	Logowanie użytkownika
@@ -80,7 +92,8 @@ POST /chat/edit/:id	Edycja wiadomości
 POST /chat/delete/:id	Usuwanie wiadomości
 Profile	GET /user/:id	Wyświetlenie profilu użytkownika
 Leaderboard	GET /leaderboard	Lista użytkowników z punktami
-🛠 Technologie
+```
+## 🛠 Technologie
 Język: JavaScript (Node.js)
 Framework: Express
 Silnik szablonów: EJS
@@ -88,22 +101,26 @@ Baza danych: MongoDB
 Sesje i autoryzacja: express-session
 Stylowanie: CSS
 Docker: MongoDB w kontenerze
-📦 Docker – konfiguracja MongoDB dla Temex
+## 📦 Docker – konfiguracja MongoDB dla Temex
 Nazwa bazy danych: temex-mongo
 Szybki start
+```bash
 docker run -d \
   --name temex-mongo \
   -p 27017:27017 \
   -v temex-mongo-data:/data/db \
   mongo:6.0
+```
 Uruchamia MongoDB 6.0 w tle
 Nadaje kontenerowi nazwę temex-mongo
 Udostępnia MongoDB na porcie localhost:27017
 Dane przechowywane są w wolumenie Docker temex-mongo-data
 Dodatkowe polecenia
+``` bash
 docker stop temex-mongo      # Zatrzymanie kontenera
 docker start temex-mongo     # Ponowne uruchomienie
 docker rm temex-mongo        # Usunięcie kontenera (dane zachowane)
 docker volume rm temex-mongo-data # Usunięcie danych MongoDB na stałe
-👤 Autor
+```
+## 👤 Autor
 Wiktor Kowalik
