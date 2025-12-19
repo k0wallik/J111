@@ -1,0 +1,30 @@
+<% layout('layout') %>
+
+<h2>Lista Użytkowników</h2>
+
+<form method="GET" action="/users">
+    <label for="minPoints">Minimum punktów:</label>
+    <input type="number" name="minPoints" value="<% query.minPoints || '' %>">
+
+    <label for="sort">Sortowanie:</label>
+    <select name="sort">
+        <option value="">Brak</option>
+        <option value="points_desc" <%= query.sort === 'date_desc' ? 'selected' : '' %>>Punkty malejąco</option>
+        <option value="points_asc" <%= query.sort === 'date_asc' ? 'selected' : '' %>>Punkty rosnąco</option>
+        <option value="author_asc" <%= query.sort === 'author_asc' ? 'selected' : '' %>>Najstarsi</option>
+        <option value="author_desc" <%= query.sort === 'author_desc' ? 'selected' : '' %>>Najnowsi</option>
+    </select>
+
+    <button type="submit">Filtruj</button>
+</form>
+
+<hr>
+
+<ul>
+    <% users.forEach(u => { %>
+        <li>
+            <a href="/user/<%= u._id %>"><%= u.username %></a>
+            - punkty: <%+ u.points %>
+        </li>
+   <% }) %>
+</ul>

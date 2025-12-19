@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Strona główna</a>
+        <a href="/chat">Czat</a>
+        <a href="/users">Użytkownicy</a>
+
+    <% if (user) { %>
+        <a href="/profile/<%= user._id %>">Mój profil</a>
+        <a href="/logout">Wyloguj</a>
+    <% } else { %>
+        <a href="/login">Logowanie</a>
+        <a href="/register">Rejestracja</a>
+    <% } %>
+    </nav>
+    <main>
+        <%- body %>
+    </main>
+</body>
+</html>

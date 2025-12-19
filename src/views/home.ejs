@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Temex - Strona główna</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+<header>
+    <h1>Witaj na Temex!</h1>
+    <nav>
+        <% if (!user) { %>
+            <a href="/auth/login">Logowanie</a> 
+            <a href="/auth/register">Rejestracja</a>
+        <% } else { %>
+            <a href="/">Strona główna</a> 
+            <a href="/chat">Czat</a> 
+            <a href="/profile">Profil</a> 
+            <a href="/auth/logout">Wyloguj</a>
+            <a href="/leaderboard">Leaderboard</a>
+        <% } %>
+    </nav>
+    <hr>
+</header>
+
+
+    <main>
+        <h2>Strona główna</h2>
+        <p>Witaj <%= user ? user.username : 'Gość' %>!</p>
+    </main>
+
+    <footer>
+        <hr>
+        <p>Temex &copy; 2025</p>
+    </footer>
+</body>
+</html>

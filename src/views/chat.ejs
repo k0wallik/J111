@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Czat</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body>
+<header>
+    <h1>Czat</h1>
+    <nav>
+        <a href="/">Strona główna</a>
+        <a href="/auth/logout">Wyloguj</a>
+    </nav>
+    <hr>
+</header>
+
+<main>
+    <h2>Wiadomości</h2>
+    <form method="GET" action="/chat">
+        <input
+            type="text"
+            name="user"
+            placeholder="Filtruj po użytkowniku"
+            value="<%= selectedUser %>"
+        >
+        <button type="submit">Filtruj</button>
+        <a class="clear" href="/chat">Wyczyść</a>
+    </form>
+
+    <ul>
+        <% messages.forEach(msg => { %>
+            <li>
+                <strong><%= msg.username %>:</strong> <%= msg.message %>
+
+                <% if (user && msg.username === user.username) { %>
+                    <form action="/chat/delete/<%= msg._id %>" method="POST" style="display:inline;">
+                        <button type="submit">Usuń</button>
+                    </form>
+
+                    <form action="/chat/edit/<%= msg._id %>" method="GET" style="display:inline;">
+                        <button type="submit">Edytuj</button>
+                    </form>
+                <% } %>
+            </li>
+        <% }) %>
+    </ul>
+
+    <form action="/chat/add" method="POST">
+        <input type="text" name="message" placeholder="Napisz wiadomość" required>
+        <button type="submit">Wyślij</button>
+    </form>
+</main>
+
+<footer>
+    <hr>
+    <p>Temex &copy; 2025</p>
+</footer>
+</body>
+</html>

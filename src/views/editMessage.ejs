@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytuj wiadomość</title>
+</head>
+<body>
+    <h1>Edytuj wiadomość</h1>
+
+    <form action="/chat/edit/<%= message._id %>" method="POST">
+        <input type="text" name="message" value="<%= message.message %>" required>
+        <button type="submit">Zapisz</button>
+    </form>
+
+    <a href="/chat">Anuluj</a>
+</body>
+</html>

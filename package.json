@@ -1,0 +1,29 @@
+{
+  "name": "temex",
+  "version": "1.0.0",
+  "description": "Aplikacja czatowa Temex zbudowana w Node.js i Express, z obsługą użytkowników, wiadomości oraz leaderboardu.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "ejs",
+    "chat",
+    "web-application"
+  ],
+  "author": "Wiktor Kowalik",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-mongo": "^6.0.0",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.2",
+    "mongodb": "^7.0.0"
+  }
+}
